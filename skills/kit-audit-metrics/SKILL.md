@@ -1,11 +1,10 @@
 ---
-name: kit-trace-metrics
+name: kit-audit-metrics
 description: Keep aggregate data work honest — define the question, trace every number to a query, separate fact from interpretation. Use for counts, rates, trends, funnels, reports, or “why did metric X move”. Not for single-user prod debugging (use kit-debug-prod).
 disable-model-invocation: true
 ---
 
-# Trace Metrics
-
+# Audit Metrics
 Anti-hallucination workflow for **aggregate** analytics. Source-agnostic (warehouse, logs, Mixpanel, BigQuery, …).
 
 ## Can it be generic?
