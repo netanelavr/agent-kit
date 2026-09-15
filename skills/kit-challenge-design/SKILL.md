@@ -1,10 +1,10 @@
 ---
-name: kit-design-review
+name: kit-challenge-design
 description: Stress-test a plan or design against domain language, docs, and code. Ask hard questions one at a time. Update CONTEXT.md and ADRs as decisions crystallize. Use when you already have a draft plan or spec and want to find gaps before implementation.
 disable-model-invocation: true
 ---
 
-# Design review
+# Challenge Design
 
 Stress-test a plan or design against the project's domain language, existing docs, and code. Ask hard questions one at a time. Capture resolved terms in `CONTEXT.md` and hard-to-reverse decisions in `docs/adr/` as they crystallize.
 
@@ -14,15 +14,15 @@ Use this when you **already have** a plan, spec, or design doc and want to find 
 
 Do **not** use this when:
 
-- The idea is still fuzzy and no draft exists yet. First agree on goal, constraints, and 2–3 approaches; write a design doc; then run design review on that doc.
-- You want to review code diffs for bugs or security. That is a separate pass focused on correctness, not domain design.
+- The idea is still fuzzy and **no draft exists yet**. Hand off to `kit-plan` (align concept + decision log; do not auto-write a PRD). Run this skill only after there is a draft to grill.
+- You want to review code diffs for bugs or security. That is `kit-review`, not domain design grilling.
 
 ## Input
 
-`design review [PATH_OR_TOPIC]` — optional.
+`kit-challenge-design [PATH_OR_TOPIC]` — optional.
 
 - **PATH**: design doc, plan, or spec
-- **TOPIC**: short description when no file exists yet
+- **TOPIC**: short description of the **existing** draft in chat (still needs a draft — fuzzy with nothing written → `kit-plan`)
 - If omitted, use the current conversation topic or ask what to review.
 
 ## 0. Load domain context
@@ -215,7 +215,7 @@ After each answered question, briefly note:
 When the user signals the review is done (or all branches are resolved), post a closing summary:
 
 ```md
-## Design review summary
+## Challenge design summary
 
 **Reviewed:** {path or topic}
 
