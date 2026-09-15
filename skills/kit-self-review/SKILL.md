@@ -1,4 +1,12 @@
-Review only changed files in this branch
+---
+name: kit-self-review
+description: Review only changed files in this branch before submitting. Use when you want to catch issues before requesting peer review.
+disable-model-invocation: true
+---
+
+# Self Review
+
+Review only changed files in this branch.
 Your primary goal is to provide **valuable, trustworthy feedback** while avoiding false positives and low-impact commentary.
 
 ---
@@ -93,7 +101,7 @@ Use judgment: prefer reuse when it **simplifies** the system.
 ## 5. Could This Be Done Better?
 If applicable, propose improved approaches:
 - **Alternative:** what to change (concisely)
-- **Why it’s better:** concrete benefit (simplicity, reuse, correctness, testing, performance)
+- **Why it's better:** concrete benefit (simplicity, reuse, correctness, testing, performance)
 - **Trade-offs:** what you lose by switching approaches
 
 Only include alternatives that meaningfully improve outcomes—avoid speculative refactors.

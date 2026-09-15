@@ -1,7 +1,15 @@
+---
+name: kit-handle-pr-comments
+description: Fetch PR comments, classify by severity, and present for approval before acting. Use when triaging PR review feedback.
+disable-model-invocation: true
+---
+
+# Handle PR Comments
+
 Fetch all PR comments, classify by severity, and present for user approval before acting.
 
 ## Input
-`triage pr comments [PR_URL_OR_NUMBER]` (optional)
+`kit-handle-pr-comments [PR_URL_OR_NUMBER]` (optional)
 - Full URL: `https://github.com/your-org/your-repo/pull/123`
 - Number only: `123`
 - **No input**: Auto-detects PR from current branch

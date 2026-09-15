@@ -1,15 +1,14 @@
 ---
-description: Structured approach for complex feature implementation with mandatory planning and user approval 
-globs:
-alwaysApply: false
+name: kit-feature-implementation
+description: Structured approach for complex feature implementation with mandatory planning and user approval. Use when implementing complex features that require deep understanding of existing codebase and design systems.
+disable-model-invocation: true
 ---
 
-# Feature Implementation Methodology
+# Feature Implementation
 
-## Overview
-This rule provides a systematic approach for implementing complex features that require deep understanding of existing codebase, design systems, and user requirements.
+Structured approach for complex feature implementation with mandatory planning and user approval.
 
-### Required Process:
+## Required Process
 1. **Complete All Planning First** (Phases 1-3)
 2. **Create Comprehensive Planning Document**  
 3. **Present Plan to User for Approval**
@@ -132,7 +131,3 @@ Before requesting user approval for implementation:
 - Building monolithic components instead of composable ones
 - Skipping planning documentation for complex features
 - Not considering future extensibility needs
-
----
-
-This methodology ensures thorough preparation before implementation, leading to more maintainable, well-architected solutions that integrate seamlessly with existing codebases. 

@@ -1,4 +1,10 @@
-# Back to Default Branch & Delete Branch
+---
+name: kit-back-to-main
+description: Cleanup current branch and switch to default branch with latest changes. Use when work is done and merged.
+disable-model-invocation: true
+---
+
+# Back to Main
 
 Cleanup current branch and switch to default branch with latest changes.
 
