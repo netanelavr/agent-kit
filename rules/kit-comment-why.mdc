@@ -1,0 +1,38 @@
+---
+description: WHY/landmine comments only — never WHAT narration
+alwaysApply: true
+---
+
+# Comment why
+
+Comments preserve **intent and danger**, not narration.
+
+## Keep / add
+
+- WHY (tradeoff, incident, constraint)
+- Landmines (“do not reorder”, “must match protocol X”)
+- Workarounds tied to a quirk/ticket
+- Non-obvious invariants
+
+## Remove / avoid
+
+- WHAT the next line does
+- Restating the function name
+- Motivational / tutorial prose
+- Comments that rot on trivial edits
+
+## Calibration
+
+Bad:
+```ts
+// Increment the retry counter
+retryCount += 1
+```
+
+Good:
+```ts
+// Do not switch to exponential backoff here; upstream rate-limits on burst, not average.
+retryCount += 1
+```
+
+Prefer deleting a weak comment over replacing it with another weak one. Never tidy away a landmine comment for style.

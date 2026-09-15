@@ -1,0 +1,22 @@
+---
+description: Minimal diffs — never reorder unrelated lines
+alwaysApply: true
+---
+
+# Keep diff
+
+Only lines that must change for the outcome should appear in the diff.
+
+## Do not
+
+- Reorder object keys, imports, class members, or enum values “for neatness”
+- Alphabetize or sort lists that were not sorted before
+- Move unrelated lines when inserting a new entry — insert without displacing neighbors
+
+## Do
+
+- Touch only what the change requires
+- Add new imports/entries next to related ones without reshuffling the rest
+- Reorder only when the user explicitly asks
+
+If a formatter would reshuffle a whole file, prefer the smallest scoped edit that still compiles.
