@@ -1,103 +1,93 @@
 ---
 name: kit-optimize-context
-description: Analyze Cursor base context and suggest optimizations. Use when you want to reduce token usage in agent sessions.
+description: Analyze always-on agent context across coding hosts (Cursor, Claude Code, Codex, Gemini CLI, etc.) and suggest token reductions. Use when sessions feel heavy before you type anything.
 disable-model-invocation: true
 ---
 
 # Optimize Context
 
-Analyze my Cursor base context and suggest optimizations.
+Map what loads into an agent session **before the user types**, then recommend cuts. Host-agnostic: detect or ask which host(s) to audit.
 
-I want to understand exactly what is loaded into my Cursor agent context on **every new session before I type anything**. Investigate and report on **all** of the following:
+## What this is NOT
 
----
+- Not a rewrite of skills/rules content (edit those files directly)
+- Not installing/uninstalling tools — **read-only** audit
 
-## 1. Workspace rules
+## 0. Scope the host(s)
 
-- Enumerate `.cursor/rules/` and identify rules that apply every session (`alwaysApply: true` **or** `alwaysApply` absent with frontmatter that implies inclusion in system context—note how Cursor resolves this for this workspace).
-- For each relevant rule file: **filename**, **approximate character count**, and **approximate token cost** (use approximate chars ÷ 4 as a coarse token estimate unless you tokenize accurately).
-- Call out the **heaviest** rules.
-- Recommend which could become **agent-requestable** / on-demand (`agentRequestable: true`, `alwaysApply: false`) instead of always-on.
+Ask once if unclear: which host to audit — **Cursor**, **Claude Code**, **Codex**, **Gemini CLI**, **OpenCode / other**, or **all present**.
 
----
+Default: audit every host that has a detectable config/skills dir on this machine, plus the current repo’s agent folders.
 
-## 2. User rules
+Token heuristic: **chars ÷ 4** unless you can tokenize accurately. Mark estimates.
 
-- List **user-level rules** configured in Cursor (typically from global Cursor settings—not repo files).
-- Approximate token cost **per rule** using the same heuristic.
-- Flag any rule large enough that a **skill** (loaded on demand) would be lighter for default sessions.
+## 1. Always-on instructions (per host)
 
----
+For each in-scope host, find always-on instruction surfaces **that exist**:
 
-## 3. Skills metadata overhead
+| Host | Typical paths / surfaces |
+|---|---|
+| Cursor | `<repo>/.cursor/rules/` (`alwaysApply` / requestable), user rules in Cursor settings |
+| Claude Code | `CLAUDE.md`, `<repo>/.claude/`, `~/.claude/` settings / memory |
+| Codex | `AGENTS.md`, `<repo>/.codex/`, `~/.codex/` |
+| Gemini CLI | `GEMINI.md` / `.gemini/` if present |
+| Shared / other | `AGENTS.md`, `.agents/`, host docs the user names |
 
-Count skills registered across these sources **where they exist**:
+For each always-on file/rule:
 
-| Source | Purpose |
-|--------|---------|
-| `<repo>/.cursor/skills/` | repo-local skills |
-| `~/.cursor/skills/` | user skills |
-| `~/.cursor/skills-cursor/` | Cursor-bundled / template skills paths |
-| `~/.codex/skills/` | Codex-skills conventions (if present) |
-| `~/.claude/skills/` | Claude/Code skills dirs (if symlinked/copied here) |
+- filename/path
+- ~chars / ~tokens
+- always-on vs on-demand (how this host decides)
+- heaviest items
+- recommendation: keep always-on, split, or move to a skill / on-demand rule
 
-Also include **skills exposed by enabled Cursor plugins/extensions** where discoverable via filesystem manifests or documented plugin paths—state limitations if some plugin metadata is opaque.
+Skip missing paths; say what you checked.
 
-For **each source that exists**:
+## 2. Skills / commands metadata
 
-- How many discrete skills (`SKILL.md` roots or declared entries) appear registered.
-- **Combined metadata size** (sum of SKILL.md fronts + descriptors the agent reliably sees **before** a skill file is explicitly read—be explicit about what you're measuring).
+Count discrete skills (`SKILL.md` roots or declared entries) and **metadata size visible before a skill body is opened**:
 
-Identify plugin-related sources contributing the most overhead **relative** to usefulness for **this repo's domain**.
+| Source | Notes |
+|---|---|
+| `<repo>/.agents/skills/`, `<repo>/.cursor/skills/`, `<repo>/skills/` | repo-local |
+| `~/.agents/skills/`, `~/.cursor/skills/`, `~/.claude/skills/`, `~/.codex/skills/`, `~/.gemini/skills/` | user-global |
+| Host-bundled / plugin skill roots | only if discoverable on disk |
 
----
+Also note slash-command / prompt folders if the host keeps them separate (e.g. legacy `commands/`).
 
-## 4. Claude plugin bridge
+Per existing source: count, combined metadata ~tokens, whether `disable-model-invocation` (or host equivalent) keeps bodies out of default context.
 
-- Read **`~/.claude/settings.json`** (if present) for `enabledPlugins` (and related bridge config).
-- List enabled plugins and their **approximate skill-count contribution** to the Claude/Cursor skill surface **from this workspace's perspective**.
-- Flag plugins unlikely to matter for **this repository** (explain briefly).
+## 3. Plugins / MCP / bridges
 
----
+Where present and readable without secrets:
 
-## 5. Git status noise
+- Enabled plugins / marketplaces (Claude `settings.json`, Cursor extensions, etc.)
+- MCP servers advertised into context (titles/descriptions only — **redact URLs/tokens**)
+- Flag plugins unlikely to matter for **this repo’s domain**
 
-> **Workspace policy reminder:** Before running **any** `git` command (including read-only ones), obtain **explicit user permission** if required by workspace rules—or skip this section if permission is withheld.
+State limits when metadata is opaque.
 
-After permission:
+## 4. Index / VCS noise
 
-- Run **`git status --short`** and report total **line count**.
-- Identify **untracked large generated dirs** (e.g. `node_modules/`, build outputs, vendor trees) escaping `.gitignore`.
-- Explain **why** they escape when possible (examples: anchored pattern vs recursive `**/`, negative rules, submodule, global gitignore interplay, casing, file already tracked historically).
-- Check whether **`.cursorignore`** exists at the repo root (and summarize what large paths it hides from indexing/context if skimmed briefly).
+After **explicit permission** to run git (or skip if withheld):
 
----
+- `git status --short` line count
+- Untracked large dirs escaping ignore
+- Host ignore files if present (`.cursorignore`, `.claudeignore`, etc.) and what large paths they hide
 
-## 6. Summary table
+## 5. Summary table
 
-Produce a markdown table:
+| Component | Host | ~Chars | ~Tokens | Reducible? | Recommended action |
+|---|---|---|---|---|---|
 
-| Component | ~Chars | ~Tokens | Reducible? | Recommended Action |
-|-----------|--------|---------|------------|---------------------|
+One row per major bucket (always-on packs, heavy files, skill metadata by source, plugins/MCP, ignore/git noise).
 
-(one row per major bucket: aggregated workspace rules, each heavy rule if split out, user rules, skill metadata buckets, MCP server descriptors surfaced to the agent, notable git/index noise implications, etc.)
+## 6. Top 3 quick wins
 
----
-
-## 7. Top 3 quick wins
-
-Based on findings, rank the **three highest-impact** changes I can make **now**—ordered by **estimated tokens saved per fresh session**.
-
-Each quick win must include:
-
-- Estimated savings (qualitative bracket is fine if exact unknown)
-- Implementation hint (toggle, move to skill, split rule, prune plugin, fix ignore, etc.)
-- Caveat/trade-off (if any)
-
----
+Highest impact for **fresh sessions**, ordered by estimated tokens saved. Each: savings bracket, how to do it, trade-off.
 
 ## Constraints
 
-- **Read-only**: do **not** modify settings, ignore files, rules, `settings.json`, or install/uninstall plugins as part of this run.
-- **Transparent methodology**: briefly state assumptions (paths checked, tokenizer vs chars/4, what counts as "metadata").
-- Prefer **measurable** counts from the filesystem; mark estimates clearly when unavoidable.
+- **Read-only** — do not edit settings, ignores, rules, or plugins in this run
+- **Redact** secrets, tokens, private hostnames, employer-private plugin names (describe by category)
+- State methodology: hosts checked, paths missing, chars/4 vs tokenizer
