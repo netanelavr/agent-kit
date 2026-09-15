@@ -16,6 +16,7 @@ When adding a new skill:
    ---
    ```
 3. Update the Skills Catalog table in `README.md`
+4. Run `kit-audit-skills` (overlaps, stale `kit-*` refs, catalog vs disk) before treating the add as done
 
 ### Removing Skills
 When removing a skill:
@@ -28,28 +29,22 @@ When renaming a skill:
 2. Update the `name` field in the YAML frontmatter
 3. Update the Skills Catalog table in `README.md`
 
-## Rules Management
+## Rule Management
+
+Rules live in `rules/` as `.mdc` files. They are always-on guidance (not slash skills). `npx skills add` does not install them.
 
 ### Adding Rules
-Rules in `rules/` should be:
-- Always-on behavioral guidelines (not workflows)
-- Generic enough to apply across projects
-- Free of employer-specific or proprietary information
+1. Create `rules/kit-<name>.mdc` with YAML frontmatter (`description`, `alwaysApply` and/or `globs`)
+2. Keep each rule to one concern and under ~50 lines
+3. Update the Rules Catalog in `README.md`
 
-When adding a rule:
-1. Use `.mdc` extension
-2. Include clear frontmatter with `description` and `alwaysApply: true`
-3. Document the rule in the Rules section of `README.md`
-
-### Converting Rules to Skills
-If a rule describes a multi-step workflow:
-1. Create a new skill under `skills/kit-<name>/`
-2. Set `alwaysApply: false` or `agentRequestable: true` in the rule
-3. Consider removing the rule entirely if it's purely procedural
+### Removing or Renaming Rules
+1. Delete or rename the `.mdc` file
+2. Update the Rules Catalog in `README.md`
 
 ## General Guidelines
 
-- **No secrets**: Never commit credentials or sensitive information
-- **Keep skills generic**: Avoid employer-specific terminology or proprietary details
-- **Maintain catalog**: Always update `README.md` when changing skills
+- **No secrets**: Never commit credentials, tokens, private hostnames, or work emails
+- **Keep skills generic**: Avoid employer names, internal tools, and proprietary details. Skills must work in any company.
+- **Maintain catalog**: Always update `README.md` when changing skills or rules
 - **Installation path**: Use `netanelavr/agent-kit` in all documentation examples

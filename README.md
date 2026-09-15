@@ -1,6 +1,6 @@
 # agent-kit
 
-Personal reusable Agent Skills for shipping code: PR workflows, code review, and context optimization. Works with Cursor and other Agent Skills hosts.
+Reusable Agent Skills for PRs, review, and shipping. Works with Cursor and other Agent Skills hosts.
 
 ## Installation
 
@@ -14,38 +14,39 @@ Install a single skill:
 npx skills add netanelavr/agent-kit/skills/kit-create-pr
 ```
 
+Always-on rules are **not** installed by `npx skills add`. Copy `rules/*.mdc` into the consuming project’s Cursor rules folder (usually `.cursor/rules/`), or into your user rules.
+
 ## Skills Catalog
 
 | Skill | When to Use |
 |-------|-------------|
 | `kit-create-pr` | Commit changes and create a pull request with proper formatting |
-| `kit-handle-pr-comments` | Fetch PR comments, classify by severity, and present for approval before acting |
-| `kit-self-review` | Review only changed files in this branch before submitting |
-| `kit-optimize-context` | Analyze Cursor base context and suggest optimizations |
-| `kit-back-to-main` | Cleanup current branch and switch to default branch with latest changes |
-| `kit-design-review` | Stress-test a plan or design against domain language, docs, and code |
-| `kit-feature-implementation` | Structured approach for complex feature implementation with mandatory planning |
-| `kit-pr-review` | Comprehensive code-review analysis before publishing a PR |
+| `kit-triage-comments` | Triage PR comments — batch or one-by-one before fixing |
+| `kit-review` | Author self-check or reviewer second-pass (`author` / `reviewer`) |
+| `kit-optimize-context` | Reduce always-on context across Cursor / Claude / Codex / etc. |
+| `kit-debug-prod` | Production bugs via logs/traces/errors/metrics (needs team `wire-observability.md`) |
+| `kit-challenge-design` | Stress-test a plan or design against domain language, docs, and code |
+| `kit-plan` | Align on a buildable concept (includes three readings when the ask is fuzzy); wait for approval |
+| `kit-minimize` | Smallest useful path / minimal PR (not design grill) |
+| `kit-prove` | Live proof for “it works” claims — smoke or runtime path; probes stay temporary |
+| `kit-explain` | Problem / Solution / How + one compact mermaid |
+| `kit-learn-repo` | Ramp on a repo: layout, run/test, safe change points |
+| `kit-check-blast` | What else could this change break — prove the safety fact |
+| `kit-trace-metrics` | Honest aggregate analytics — define, query, provenance, no invented numbers |
+| `kit-audit-skills` | After adding/renaming skills: overlaps, contradictions, stale names, catalog drift |
 
-## Usage
+## Rules Catalog
 
-Invoke skills by name in Cursor:
-```
-/kit-create-pr
-/kit-self-review
-/kit-optimize-context
-```
+Always-on Cursor rules (`rules/*.mdc`). Copy into the consuming repo; do not rely on slash invoke.
 
-## Rules
+| Rule | When it applies |
+|------|-----------------|
+| `kit-comment-why` | WHY/landmine comments only — no WHAT narration |
+| `kit-delegate` | Inline vs skill vs subagent; safe parallel fan-out |
+| `kit-keep-diff` | always — minimal diffs, no unrelated reorders |
+| `kit-humanize` | always — plain writing; no AI-slop in commits/PRs/docs |
 
-The `rules/` directory contains always-on Cursor rules that are automatically applied when copied into a Cursor project:
-
-- `ask-before-acting.mdc` — Ask clarifying questions before starting any task
-- `git-safety.mdc` — Require explicit permission for all git operations
-- `docs-location.mdc` — Documentation location conventions
-- `mcp-tool-definition.mdc` — Guidelines for defining MCP server tools (on-demand)
-
-Copy these rules to your project's `.cursor/rules/` directory to enable them.
+Invoke a skill in Cursor with `/<skill-name>`.
 
 ## License
 
