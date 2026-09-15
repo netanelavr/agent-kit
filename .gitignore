@@ -1,0 +1,20 @@
+# Local agent tool state. This repo ships skills and rules as
+# tracked artifacts — not personal agent configs or session files.
+.claude/
+.codex/
+.cursor/
+.entire/
+.gemini/
+.serena/
+.superset/
+
+# Local maintainer notes and ops scripts (includes pre-push-audit.local).
+.ops/
+
+# Interpreter junk
+node_modules/
+__pycache__/
+*.py[cod]
+
+# macOS Finder metadata
+.DS_Store
