@@ -1,6 +1,7 @@
 ---
-name: design-review
+name: kit-design-review
 description: Stress-test a plan or design against domain language, docs, and code. Ask hard questions one at a time. Update CONTEXT.md and ADRs as decisions crystallize. Use when you already have a draft plan or spec and want to find gaps before implementation.
+disable-model-invocation: true
 ---
 
 # Design review

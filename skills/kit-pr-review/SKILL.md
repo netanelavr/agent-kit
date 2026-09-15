@@ -1,27 +1,15 @@
 ---
-description: >
-  Code review rule for PR analysis. Challenges architectural decisions, examines
-  the diff with the default branch, and provides comprehensive feedback on code
-  quality, security, performance, and maintainability before publishing.
-globs:
-alwaysApply: false
-questions:
-  - "Why this approach? Is there a simpler way?"
-  - "What are the trade-offs? What are we sacrificing?"
-  - "What could go wrong? Failure modes and edge cases?"
-  - "How will this scale with 10× load/data/users?"
-  - "How will we maintain this over time?"
+name: kit-pr-review
+description: Comprehensive code-review analysis before publishing a PR, combining architectural review with diff analysis. Use when you want thorough PR analysis beyond self-review.
+disable-model-invocation: true
 ---
 
 # PR Code Review
 
-Comprehensive code-review analysis before publishing a PR, combining architectural
-review with diff analysis against the default branch.
+Comprehensive code-review analysis before publishing a PR, combining architectural review with diff analysis against the default branch.
 
 ## Review Philosophy
-Be constructively critical. Focus on maintainability, security, performance, and
-reliability. Balance perfection with progress — not every PR must be perfect, but
-it should meet agreed-upon quality standards.
+Be constructively critical. Focus on maintainability, security, performance, and reliability. Balance perfection with progress — not every PR must be perfect, but it should meet agreed-upon quality standards.
 
 ---
 
@@ -71,7 +59,11 @@ it should meet agreed-upon quality standards.
 
 ## Key Review Questions
 
-(Automatically surfaced by tooling — see YAML front-matter `questions` list.)
+- Why this approach? Is there a simpler way?
+- What are the trade-offs? What are we sacrificing?
+- What could go wrong? Failure modes and edge cases?
+- How will this scale with 10× load/data/users?
+- How will we maintain this over time?
 
 ---
 
@@ -85,4 +77,4 @@ it should meet agreed-upon quality standards.
 - [ ] No critical security vulnerabilities  
 - [ ] No performance bottlenecks for expected load  
 - [ ] Code follows project standards with adequate tests  
-- [ ] Breaking changes are documented and justified  
+- [ ] Breaking changes are documented and justified

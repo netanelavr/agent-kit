@@ -1,3 +1,11 @@
+---
+name: kit-optimize-context
+description: Analyze Cursor base context and suggest optimizations. Use when you want to reduce token usage in agent sessions.
+disable-model-invocation: true
+---
+
+# Optimize Context
+
 Analyze my Cursor base context and suggest optimizations.
 
 I want to understand exactly what is loaded into my Cursor agent context on **every new session before I type anything**. Investigate and report on **all** of the following:
@@ -7,7 +15,7 @@ I want to understand exactly what is loaded into my Cursor agent context on **ev
 ## 1. Workspace rules
 
 - Enumerate `.cursor/rules/` and identify rules that apply every session (`alwaysApply: true` **or** `alwaysApply` absent with frontmatter that implies inclusion in system context—note how Cursor resolves this for this workspace).
-- For each relevant rule file: **filename**, **approximate character count**, and **approximate token cost** (use approximate chars ÷ 4 as a coarse token estimate unless you tokenize accurately).
+- For each relevant rule file: **filename**, **approximate character count**, and **approximate token cost** (use approximate chars ÷ 4 as a coarse token estimate unless you tokenize accurately).
 - Call out the **heaviest** rules.
 - Recommend which could become **agent-requestable** / on-demand (`agentRequestable: true`, `alwaysApply: false`) instead of always-on.
 
@@ -40,14 +48,14 @@ For **each source that exists**:
 - How many discrete skills (`SKILL.md` roots or declared entries) appear registered.
 - **Combined metadata size** (sum of SKILL.md fronts + descriptors the agent reliably sees **before** a skill file is explicitly read—be explicit about what you're measuring).
 
-Identify plugin-related sources contributing the most overhead **relative** to usefulness for **this repo’s domain**.
+Identify plugin-related sources contributing the most overhead **relative** to usefulness for **this repo's domain**.
 
 ---
 
 ## 4. Claude plugin bridge
 
 - Read **`~/.claude/settings.json`** (if present) for `enabledPlugins` (and related bridge config).
-- List enabled plugins and their **approximate skill-count contribution** to the Claude/Cursor skill surface **from this workspace’s perspective**.
+- List enabled plugins and their **approximate skill-count contribution** to the Claude/Cursor skill surface **from this workspace's perspective**.
 - Flag plugins unlikely to matter for **this repository** (explain briefly).
 
 ---
@@ -91,5 +99,5 @@ Each quick win must include:
 ## Constraints
 
 - **Read-only**: do **not** modify settings, ignore files, rules, `settings.json`, or install/uninstall plugins as part of this run.
-- **Transparent methodology**: briefly state assumptions (paths checked, tokenizer vs chars/4, what counts as “metadata”).
+- **Transparent methodology**: briefly state assumptions (paths checked, tokenizer vs chars/4, what counts as "metadata").
 - Prefer **measurable** counts from the filesystem; mark estimates clearly when unavoidable.

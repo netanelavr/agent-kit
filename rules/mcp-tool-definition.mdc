@@ -1,7 +1,7 @@
 ---
-description: 
-globs: 
+description: Guidelines for defining MCP server tools with clear titles and descriptions
 alwaysApply: false
+agentRequestable: true
 ---
 ## MCP Tool Definitions
 
