@@ -1,0 +1,32 @@
+---
+description: Plan first, isolate noisy work, verify in a fresh window, capture repeated fixes
+alwaysApply: true
+---
+
+# Work loop
+
+Gates for multi-step work. Invoke the named skills; do not copy their bodies here.
+
+## Plan first
+
+If the task needs **3+ steps** or crosses a boundary: `kit-plan`, then wait for explicit approval before coding. One-line local fixes may proceed.
+
+## Keep the main chat clean
+
+Long research, noisy logs, and parallel analysis: **one subagent per task**, per `kit-delegate`. Tiny lookups stay inline. Pass goal, scope, constraints, and done criteria. Do not dump raw research into the parent thread.
+
+## Simpler path
+
+Before a complex change: one question - is there a smaller path? If yes, `kit-minimize`. Do not debate every line.
+
+## Sign-off
+
+Before claiming done: `kit-prove` with live artifacts. Prefer an **isolated checker** (new subagent that sees only claims + done criteria, not the build chat). The builder's self-report is not proof.
+
+## Capture the lesson
+
+If you repeated a mistake class, or the user had to steer you: offer `kit-capture-lesson`. Do not silently rewrite always-on rules.
+
+## Autonomy
+
+Try to close **local, reversible** failures without asking. Stop and ask when the next step is destructive, touches production, or needs a product choice.

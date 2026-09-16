@@ -34,6 +34,7 @@ Always-on rules are **not** installed by `npx skills add`. Copy `rules/*.mdc` in
 | `kit-check-blast` | What else could this change break — prove the safety fact |
 | `kit-audit-metrics` | Honest aggregate analytics — define, query, provenance, no invented numbers |
 | `kit-audit-skills` | After adding/renaming skills: overlaps, contradictions, stale names, catalog drift |
+| `kit-capture-lesson` | Turn a steering/repeated miss into a short written rule; wait for approval |
 
 ## Rules Catalog
 
@@ -45,6 +46,7 @@ Always-on Cursor rules (`rules/*.mdc`). Copy into the consuming repo; do not rel
 | `kit-delegate` | Inline vs skill vs subagent; safe parallel fan-out |
 | `kit-keep-diff` | always — minimal diffs, no unrelated reorders |
 | `kit-humanize` | always — plain writing; no AI-slop in commits/PRs/docs |
+| `kit-work-loop` | always — plan first, isolate noisy work, isolated prove, capture repeated fixes |
 
 Invoke a skill in Cursor with `/<skill-name>`.
 

@@ -47,12 +47,13 @@ Same endpoint / query / UI flow / log line for both captures.
 ## Flow
 
 1. List claims that need proof.
-2. **Depth:** Tiny change + strong tests + obvious path → you may **skip deep probes** (extra adapters/instrumentation). Say why. This is not permission to claim “it works” without an artifact.
-3. For each claim you still assert: run or request the real path. Pick an adapter when the user asked to validate/verify a feature (not only a one-line smoke).
-4. Paste/attach the **raw** artifact (keep timestamps).
-5. If only a derived visual exists: label **reconstruction** and still attach the raw source.
-6. **Cleanup** — remove probes; `git diff` + search for TEMP/debug markers must be clean before push.
-7. Never commit validation junk under `docs/` (or similar); keep proofs in chat/PR comments.
+2. **Isolated checker (prefer for multi-step or risky changes):** spawn a **new** subagent. Give it only claims, done criteria, how to run proof, and paths in scope. Do **not** pass the build chat, your rationale, or “it should pass.” That checker runs this skill and reports artifacts or **unproven**. Tiny obvious fixes may stay inline; say so.
+3. **Depth:** Tiny change + strong tests + obvious path → you may **skip deep probes** (extra adapters/instrumentation). Say why. This is not permission to claim “it works” without an artifact.
+4. For each claim you still assert: run or request the real path. Pick an adapter when the user asked to validate/verify a feature (not only a one-line smoke).
+5. Paste/attach the **raw** artifact (keep timestamps).
+6. If only a derived visual exists: label **reconstruction** and still attach the raw source.
+7. **Cleanup** — remove probes; `git diff` + search for TEMP/debug markers must be clean before push.
+8. Never commit validation junk under `docs/` (or similar); keep proofs in chat/PR comments.
 
 ## Adapters (pick one when you need a runtime path)
 
