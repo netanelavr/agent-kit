@@ -1,6 +1,46 @@
+# agent-kit
+
+Reusable Agent Skills and always-on rules for PRs, review, and shipping. Skills install through the Agent Skills CLI. Rules live in plain markdown so Claude Code, Codex, Cursor, and other hosts can share one copy.
+
+Works out of the box with Claude Code 2.1.277+ via `AGENTS.md` - one rules file for every coding agent, no per-vendor copies.
+
+## Install
+
+Skills (any Agent Skills host):
+
+```bash
+npx skills add netanelavr/agent-kit --all
+```
+
+One skill:
+
+```bash
+npx skills add netanelavr/agent-kit/skills/kit-create-pr
+```
+
+`npx skills add` does **not** install rules. How each vendor picks up rules is in the README consumption matrix.
+
+## Use
+
+- Invoke a skill with `/<skill-name>` (Cursor) or the host’s skill command.
+- Always-on rules are not slash skills. Read and apply [`rules/AGENTS.md`](rules/AGENTS.md) in full. That file is the source of truth for `kit-comment-why`, `kit-delegate`, `kit-keep-diff`, `kit-humanize`, and `kit-work-loop`.
+- Cursor: copy `rules/*.mdc` **and** `rules/AGENTS.md` into `.cursor/rules/` (or user rules). The `.mdc` files are wrappers; they do not carry a second copy of the bodies.
+- Claude Code 2.1.277+: in the consuming repo, copy `rules/AGENTS.md` to repo-root `AGENTS.md`. That is the fallback when no `CLAUDE.md` exists. If you already have a `CLAUDE.md`, delete it or reference `AGENTS.md` from it. The fallback only fires when `CLAUDE.md` is absent.
+- Codex: copy `rules/AGENTS.md` to repo-root `AGENTS.md`.
+
+## Kit conventions
+
+- Skill directories and names use the `kit-` prefix (`skills/kit-<name>/`).
+- Rule ids use the same prefix (`kit-comment-why`, …). Canonical bodies live in `rules/AGENTS.md`. Cursor `.mdc` files are thin wrappers (frontmatter + pointer).
+- Skills must stay generic: no employer names, internal tools, or proprietary details.
+- Public examples use `netanelavr/agent-kit`.
+- Catalogs in `README.md` must match what is on disk.
+
+---
+
 # Agent Maintenance Guide
 
-This document provides guidelines for maintaining agent-kit.
+Guidelines for maintaining agent-kit.
 
 ## Skill Management
 
@@ -31,16 +71,17 @@ When renaming a skill:
 
 ## Rule Management
 
-Rules live in `rules/` as `.mdc` files. They are always-on guidance (not slash skills). `npx skills add` does not install them.
+Canonical rule content lives in `rules/AGENTS.md` (plain markdown). Cursor wrappers live in `rules/` as `kit-<name>.mdc`. They are always-on guidance (not slash skills). `npx skills add` does not install them.
 
 ### Adding Rules
-1. Create `rules/kit-<name>.mdc` with YAML frontmatter (`description`, `alwaysApply` and/or `globs`)
-2. Keep each rule to one concern and under ~50 lines
+1. Add a named section to `rules/AGENTS.md` (one concern, keep it short)
+2. Add `rules/kit-<name>.mdc` with YAML frontmatter (`description`, `alwaysApply` and/or `globs`) and a pointer to that section - no forked body
 3. Update the Rules Catalog in `README.md`
 
 ### Removing or Renaming Rules
-1. Delete or rename the `.mdc` file
-2. Update the Rules Catalog in `README.md`
+1. Edit or delete the section in `rules/AGENTS.md`
+2. Delete or rename the `.mdc` wrapper
+3. Update the Rules Catalog in `README.md`
 
 ## General Guidelines
 

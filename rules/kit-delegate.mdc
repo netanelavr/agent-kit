@@ -3,21 +3,4 @@ description: Inline vs skill vs subagent; safe parallel fan-out
 alwaysApply: true
 ---
 
-# Delegate
-
-Default is **inline or a skill**. Escalate to a **subagent** only when isolation or parallelism pays for itself. Do not spawn agents for tiny lookups.
-
-| Situation | Do this |
-|---|---|
-| One-shot (changelog, format, short lookup) | Skill or inline |
-| Long research / noisy logs that would flood the chat | One subagent |
-| Same method over independent units and wait time hurts | Parallel fan-out — one worker per unit |
-| Unit B needs A, or both edit the same file | Sequential; parent applies shared writes |
-
-Parallelize only when units do not need each other’s mid-run output, writes do not overlap, and each unit has named paths. Without worktrees, do not parallel-edit the same working tree.
-
-Fleet: default 2–3, soft max ~4 unless the user asks for more. Skip orchestration for single-file work.
-
-Every subagent starts blank. Pass: goal, scope (and what not to touch), decisions already made, constraints, done criteria, and proof artifacts when claims matter.
-
-Parent keeps aggregation, git/PR/shared config, and the user-facing summary. If one unit fails, mark it and keep aggregating — never treat a missing unit as a pass.
+Follow the **Delegate** section in [`AGENTS.md`](./AGENTS.md) (kit path: `rules/AGENTS.md`). That file is the source of truth. Do not fork the rule body in this wrapper.

@@ -21,9 +21,10 @@ Treat the kit as a product. Every extra skill is a name the user must remember. 
 Scan on disk (do not trust memory or git status alone):
 
 - `skills/*/SKILL.md` — directory name, YAML `name`, `description`, `disable-model-invocation`
-- `rules/*.mdc` — filename, `alwaysApply` / `globs`, description
+- `rules/AGENTS.md` — canonical rule bodies (plain markdown)
+- `rules/*.mdc` — Cursor wrappers: filename, `alwaysApply` / `globs`, description, pointer to `rules/AGENTS.md` (no forked body)
 - `README.md` — Skills Catalog, Rules Catalog, Usage slash list
-- `AGENTS.md` — add/remove/rename instructions vs what exists
+- `AGENTS.md` — consumer install/use plus add/remove/rename instructions vs what exists
 
 Build a table: **on disk / in catalog / in Usage / leftover alias dir**.
 
