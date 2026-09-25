@@ -2,6 +2,8 @@
 
 Reusable Agent Skills for PRs, review, and shipping. Works with Cursor and other Agent Skills hosts.
 
+Claude Code reads `AGENTS.md` for install and conventions when `CLAUDE.md` is absent. That does not load the always-on rules. Those stay in `rules/*.mdc`. Copy or point at them (see [How vendors consume the kit](#how-vendors-consume-the-kit)).
+
 ## Installation
 
 Install all skills:
@@ -14,7 +16,7 @@ Install a single skill:
 npx skills add netanelavr/agent-kit/skills/kit-create-pr
 ```
 
-Always-on rules are **not** installed by `npx skills add`. Copy `rules/*.mdc` into the consuming project’s Cursor rules folder (usually `.cursor/rules/`), or into your user rules.
+Always-on rules are **not** installed by `npx skills add`. Copy `rules/*.mdc` if you want the always-on kit loop. Skills install does not do that. See [How vendors consume the kit](#how-vendors-consume-the-kit).
 
 ## Skills Catalog
 
@@ -38,7 +40,7 @@ Always-on rules are **not** installed by `npx skills add`. Copy `rules/*.mdc` in
 
 ## Rules Catalog
 
-Always-on Cursor rules (`rules/*.mdc`). Copy into the consuming repo; do not rely on slash invoke.
+Always-on rules (`rules/*.mdc`). Copy or point at them; do not rely on slash invoke. See [How vendors consume the kit](#how-vendors-consume-the-kit).
 
 | Rule | When it applies |
 |------|-----------------|
@@ -49,6 +51,17 @@ Always-on Cursor rules (`rules/*.mdc`). Copy into the consuming repo; do not rel
 | `kit-work-loop` | always — plan first, isolate noisy work, isolated prove, capture repeated fixes |
 
 Invoke a skill in Cursor with `/<skill-name>`.
+
+## How vendors consume the kit
+
+Skills install the same way on every host: `npx skills add`. Rules are separate.
+
+| Vendor | Skills | Rules |
+|--------|--------|-------|
+| All Agent Skills hosts | `npx skills add netanelavr/agent-kit --all` (or a single skill path) | not installed by the CLI |
+| Cursor | same | copy `rules/*.mdc` into `.cursor/rules/` (or user rules) |
+| Claude Code | same | copy `rules/*.mdc` into the consuming repo, or point at them from root `AGENTS.md`. Claude Code reads `AGENTS.md` as a **fallback** only when `CLAUDE.md` is absent. If you already have a `CLAUDE.md`, delete it or reference `AGENTS.md` / the `.mdc` files from it |
+| Codex | same | copy `rules/*.mdc`, or point at them from root `AGENTS.md` |
 
 ## License
 
