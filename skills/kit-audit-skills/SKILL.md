@@ -21,9 +21,10 @@ Treat the kit as a product. Every extra skill is a name the user must remember. 
 Scan on disk (do not trust memory or git status alone):
 
 - `skills/*/SKILL.md` — directory name, YAML `name`, `description`, `disable-model-invocation`
-- `rules/*.mdc` — filename, `alwaysApply` / `globs`, description
-- `README.md` — Skills Catalog, Rules Catalog, Usage slash list
-- `AGENTS.md` — add/remove/rename instructions vs what exists
+- `rules/*.mdc` — filename, `alwaysApply` / `globs`, description, full rule body
+- `rules/AGENTS.md` — short index only (no forked bodies)
+- `README.md` — Skills Catalog, Rules Catalog, Usage slash list, consumption matrix
+- `AGENTS.md` — consumer install/use plus add/remove/rename instructions vs what exists
 
 Build a table: **on disk / in catalog / in Usage / leftover alias dir**.
 
@@ -36,11 +37,23 @@ Build a table: **on disk / in catalog / in Usage / leftover alias dir**.
 - YAML `name` ≠ directory name
 - Old renamed folders still on disk next to the new name
 
-### 2. Leftover aliases
+### 2. Skills CLI parse
+
+From the repo root, list skills **without installing**:
+
+```bash
+npx skills add . -l
+```
+
+Do not omit `-l`. A run without `-l` installs into the agent.
+
+Pass when the command exits 0 and the listed names match every `skills/*/SKILL.md` directory on disk (same count, same names). Fail when the command errors, or a skill on disk is missing from the list.
+
+### 3. Leftover aliases
 
 Old renamed folders still on disk (`kit-self-review` next to `kit-review`, etc.) count as **duplicates**, not compatibility. Flag for delete unless the user explicitly wants a stub.
 
-### 3. Same job, two names
+### 4. Same job, two names
 
 Cluster by **user intent**, not title:
 
@@ -54,7 +67,7 @@ Cluster by **user intent**, not title:
 
 A skill is redundant if a user who forgets its name would still get the outcome from another skill.
 
-### 4. Contradictions
+### 5. Contradictions
 
 - A says “use B first”; B says “not A” or points at a deleted name
 - Two skills claim the same trigger in `description`
@@ -64,15 +77,15 @@ A skill is redundant if a user who forgets its name would still get the outcome 
 
 Grep all `kit-*` mentions across `skills/`, `rules/`, `README.md`, `AGENTS.md`. Every hit must resolve to a live skill or live rule (examples like `kit-new-skill` in AGENTS.md are fine).
 
-### 5. Skill vs rule
+### 6. Skill vs rule
 
 Move to **rule** when the guidance must fire without a slash (comments, git hygiene, delegate). Keep a **skill** when it is a paced workflow the user opts into (plan, review, prove, create-pr).
 
-### 6. Size bar
+### 7. Size bar
 
 Slash-invoke kits go stale around **~12–14 skills**. Count live `SKILL.md` dirs. If over that, propose a cut list — do not only say “it’s a lot.”
 
-### 7. Employer / proprietary leakage
+### 8. Employer / proprietary leakage
 
 Public kit must stay **generic** (see `AGENTS.md` — Keep skills generic).
 
@@ -108,6 +121,9 @@ Do not recommend merge and keep as separate without saying which name to type.
 **Counts:** N skills, M rules (catalog says …)
 
 ### Drift
+- …
+
+### CLI parse
 - …
 
 ### Overlaps

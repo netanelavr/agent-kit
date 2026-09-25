@@ -1,6 +1,6 @@
 ---
 name: kit-review
-description: Review a branch or PR — author self-check (changed files only) or reviewer second-pass (architecture + diff). Use before publish or when reviewing someone else’s PR. Modes: author | reviewer.
+description: Review a branch or PR - author self-check (changed files only) or reviewer second-pass (architecture + diff). Use before publish or when reviewing someone else's PR. Modes are author or reviewer.
 disable-model-invocation: true
 ---
 
