@@ -16,6 +16,7 @@ Do **not** use this when:
 
 - The idea is still fuzzy and **no draft exists yet**. Hand off to `kit-plan` (align concept + decision log; do not auto-write a PRD). Run this skill only after there is a draft to grill.
 - You want to review code diffs for bugs or security. That is `kit-review`, not domain design grilling.
+- You want a living log of tried paths, rejects, and landmines for one feature. That is `kit-decisions`. ADRs here stay sparse.
 
 ## Input
 

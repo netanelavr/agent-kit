@@ -17,6 +17,7 @@ Accept `kit-review author|reviewer`. If omitted: **author** when the user owns t
 - Not “comment on every line” — prefer fewer, higher-severity findings
 - Not a license to rewrite unrelated code (Boy Scout only when asked)
 - Not proof that it works (`kit-prove`) and not blast-radius (`kit-check-blast`)
+- Not the feature decision log (`kit-decisions`) — read it when present; do not rewrite it here
 
 ## Scope
 
@@ -26,6 +27,14 @@ Accept `kit-review author|reviewer`. If omitted: **author** when the user owns t
 | **reviewer** | Diff vs default branch **plus** a light approach check. Prefer fewer findings. Full domain/ADR grill → `kit-challenge-design`. |
 
 If nothing meaningful: say the diff is acceptable.
+
+## Feature log
+
+If this change belongs to a feature that has a `decisions.md` (`docs/features/<feature>/decisions.md`, or a file that already sits with that feature), read it before findings. Maintaining the log is `kit-decisions`.
+
+- Re-proposing a **Rejected** option without new evidence is a finding.
+- Undoing an **Accepted** decision without new evidence is a finding.
+- A **Landmine** the diff steps on is a finding, even when the edit looks small.
 
 ## Approach
 

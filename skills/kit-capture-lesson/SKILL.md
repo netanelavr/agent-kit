@@ -11,6 +11,7 @@ Write the smallest rule that would have blocked this mistake. Apply only after e
 ## What this is NOT
 
 - Not domain terms or hard-to-reverse architecture (`kit-challenge-design` → CONTEXT / ADR)
+- Not a feature decision log (`kit-decisions`)
 - Not choosing a thinner implementation (`kit-minimize`)
 - Not a kit catalog audit (`kit-audit-skills`)
 - Not a dump into CLAUDE.md / AGENTS.md / a new mega-skill

@@ -13,6 +13,7 @@ You stop plan-mode from inventing the wrong thing, and you stop coding from star
 ## What this is NOT
 
 - Not grilling a finished design against glossary/ADRs (`kit-challenge-design`)
+- Not the living log of a feature already in progress (`kit-decisions`)
 - Not choosing the smallest path of an agreed outcome (`kit-minimize`)
 - Not a PRD factory, issue tree, or future-proof architecture pass
 

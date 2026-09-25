@@ -29,6 +29,7 @@ Always-on rules are **not** installed by `npx skills add`. Copy `rules/*.mdc` if
 | `kit-debug-prod` | Production bugs via logs/traces/errors/metrics (needs team `wire-observability.md`) |
 | `kit-challenge-design` | Stress-test a plan or design against domain language, docs, and code |
 | `kit-plan` | Align on a buildable concept (includes three readings when the ask is fuzzy); wait for approval |
+| `kit-decisions` | Living log for one large feature: accepted, rejected, landmines, open |
 | `kit-minimize` | Smallest useful path / minimal PR (not design grill) |
 | `kit-prove` | Live proof for “it works” claims — smoke or runtime path; probes stay temporary |
 | `kit-explain` | Problem / Solution / How + one compact mermaid |

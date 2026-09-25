@@ -18,6 +18,6 @@ Parallelize only when units do not need each other’s mid-run output, writes do
 
 Fleet: default 2–3, soft max ~4 unless the user asks for more. Skip orchestration for single-file work.
 
-Every subagent starts blank. Pass: goal, scope (and what not to touch), decisions already made, constraints, done criteria, and proof artifacts when claims matter.
+Every subagent starts blank. Pass: goal, scope (and what not to touch), decisions already made, constraints, done criteria, and proof artifacts when claims matter. If a feature `decisions.md` exists, include the Accepted, Rejected, and Landmine bullets this task can touch.
 
 Parent keeps aggregation, git/PR/shared config, and the user-facing summary. If one unit fails, mark it and keep aggregating — never treat a missing unit as a pass.
