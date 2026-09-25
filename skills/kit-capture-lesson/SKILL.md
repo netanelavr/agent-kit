@@ -1,6 +1,6 @@
 ---
 name: kit-capture-lesson
-description: Turn a correction into a short written rule so it does not repeat. Use after steering, a repeated bug class, or “remember this”. Not domain glossary/ADRs (kit-challenge-design) and not shrinking a path (kit-minimize).
+description: Turn a correction into a short written rule so it does not repeat. Use after steering, a repeated bug class, or “remember this”.
 disable-model-invocation: true
 ---
 

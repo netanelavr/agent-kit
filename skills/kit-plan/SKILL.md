@@ -1,6 +1,6 @@
 ---
 name: kit-plan
-description: Align on a buildable concept, then wait for explicit approval before coding. Use for complex or fuzzy work — includes three ticket readings when the ask is ambiguous. Not design grilling (kit-challenge-design) or shrinking an agreed path (kit-minimize).
+description: Align on a buildable concept, then wait for explicit approval before coding. Use for complex or fuzzy work — includes three ticket readings when the ask is ambiguous.
 disable-model-invocation: true
 ---
 

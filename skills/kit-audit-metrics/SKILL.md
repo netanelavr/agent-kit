@@ -1,6 +1,6 @@
 ---
 name: kit-audit-metrics
-description: Keep aggregate data work honest — define the question, trace every number to a query, separate fact from interpretation. Use for counts, rates, trends, funnels, reports, or “why did metric X move”. Not for single-user prod debugging (use kit-debug-prod).
+description: Keep aggregate data work honest — define the question, trace every number to a query, separate fact from interpretation. Use for counts, rates, trends, funnels, reports, or “why did metric X move”.
 disable-model-invocation: true
 ---
 

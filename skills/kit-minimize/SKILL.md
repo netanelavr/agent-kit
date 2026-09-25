@@ -1,6 +1,6 @@
 ---
 name: kit-minimize
-description: Find the smallest useful path to an engineering outcome. Use for minimal PR, least diff, 80/20, or anti-over-engineering — not for full design grilling (use kit-challenge-design) or ticket interpretation (use kit-plan).
+description: Find the smallest useful path to an engineering outcome. Use for minimal PR, least diff, 80/20, or anti-over-engineering.
 disable-model-invocation: true
 ---
 
