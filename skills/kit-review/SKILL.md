@@ -17,6 +17,7 @@ Accept `kit-review author|reviewer`. If omitted: **author** when the user owns t
 - Not “comment on every line” — prefer fewer, higher-severity findings
 - Not a license to rewrite unrelated code (Boy Scout only when asked)
 - Not proof that it works (`kit-prove`) and not blast-radius (`kit-check-blast`)
+- Not stripping unused additions, extra instruction lines, or format-only hunks (`kit-strip-diff`)
 - Not the feature decision log (`kit-decisions`) — read it when present; do not rewrite it here
 
 ## Scope

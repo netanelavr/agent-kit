@@ -12,6 +12,7 @@ Ship the outcome with the smallest change. Prefer reuse over invention.
 
 - Not a full design challenge (`kit-challenge-design`)
 - Not ticket readings or fuzzy alignment (`kit-plan`)
+- Not cleaning a diff that already exists (`kit-strip-diff`)
 
 ## Flow
 
@@ -38,3 +39,4 @@ While implementing the chosen path, follow always-on `kit-keep-diff`: no unrelat
 
 - Prefer in-repo patterns over new frameworks.
 - If nothing small works, say so — propose a thinner outcome, don’t fake minimal.
+- If the code is already written and the diff is fatter than the outcome, stop and use `kit-strip-diff`.

@@ -1,5 +1,5 @@
 ---
-description: Plan first, isolate noisy work, verify in a fresh window, capture repeated fixes
+description: Plan first, isolate noisy work, strip a fat diff, verify in a fresh window, capture repeated fixes
 alwaysApply: true
 ---
 
@@ -18,6 +18,8 @@ Long research, noisy logs, and parallel analysis: **one subagent per task**, per
 ## Simpler path
 
 Before a complex change: one question - is there a smaller path? If yes, `kit-minimize`. Do not debate every line.
+
+After the change exists, if the diff still has unused additions, extra instruction lines, or format-only hunks: `kit-strip-diff`.
 
 ## Sign-off
 

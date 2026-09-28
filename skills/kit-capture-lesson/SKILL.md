@@ -37,5 +37,5 @@ Prefer patching an existing skill or rule over adding a name.
 ## Constraints
 
 - Generic: no employer names, private hosts, or work-only tools (`AGENTS.md`)
-- Do not duplicate `kit-plan`, `kit-prove`, `kit-minimize`, or `kit-delegate`
+- Do not duplicate `kit-plan`, `kit-prove`, `kit-minimize`, `kit-strip-diff`, or `kit-delegate`
 - Do not auto-apply. A proposed lesson that they reject is done.

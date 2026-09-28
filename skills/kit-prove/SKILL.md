@@ -1,6 +1,6 @@
 ---
 name: kit-prove
-description: Require live proof for any “works / tested / validated” claim — CLI, raw JSON/logs, timestamps, or a real runtime path. Use when verifying a fix, smoke, or “validate it works”. Not for dead-code cleanup or design debate.
+description: Require live proof for any “works / tested / validated” claim — CLI, raw JSON/logs, timestamps, or a real runtime path. Use when verifying a fix, smoke, or “validate it works”. Not for stripping a finished diff or design debate.
 disable-model-invocation: true
 ---
 
@@ -10,7 +10,7 @@ disable-model-invocation: true
 
 ## What this is NOT
 
-- Not code cleanup after AI iteration (prune the diff separately)
+- Not stripping extras from a finished diff (`kit-strip-diff`)
 - Not “I think this approach is right” without a run — that’s opinion, not proof
 - Not a substitute for `kit-review` judgment
 - Not production incident work (`kit-debug-prod`)

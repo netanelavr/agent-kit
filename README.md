@@ -31,6 +31,7 @@ Always-on rules are **not** installed by `npx skills add`. Copy `rules/*.mdc` if
 | `kit-plan` | Align on a buildable concept (includes three readings when the ask is fuzzy); wait for approval |
 | `kit-decisions` | Living log for one large feature: accepted, rejected, landmines, open |
 | `kit-minimize` | Smallest useful path / minimal PR (not design grill) |
+| `kit-strip-diff` | After the outcome works: drop unused additions, extra instruction lines, and format-only hunks |
 | `kit-prove` | Live proof for “it works” claims — smoke or runtime path; probes stay temporary |
 | `kit-explain` | Problem / Solution / How + one compact mermaid |
 | `kit-learn-repo` | Ramp on a repo: layout, run/test, safe change points |
@@ -49,7 +50,7 @@ Always-on rules (`rules/*.mdc`). Copy or point at them; do not rely on slash inv
 | `kit-delegate` | Inline vs skill vs subagent; safe parallel fan-out |
 | `kit-keep-diff` | always — minimal diffs, no unrelated reorders |
 | `kit-humanize` | always — plain writing; no AI-slop in commits/PRs/docs |
-| `kit-work-loop` | always — plan first, isolate noisy work, isolated prove, capture repeated fixes |
+| `kit-work-loop` | always — plan first, isolate noisy work, strip a fat diff, isolated prove, capture repeated fixes |
 
 Invoke a skill in Cursor with `/<skill-name>`.
 

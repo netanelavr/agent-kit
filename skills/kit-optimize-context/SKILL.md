@@ -11,6 +11,7 @@ Map what loads into an agent session **before the user types**, then recommend c
 ## What this is NOT
 
 - Not a rewrite of skills/rules content (edit those files directly)
+- Not cutting extras inside a finished diff (`kit-strip-diff`)
 - Not installing/uninstalling tools — **read-only** audit
 
 ## 0. Scope the host(s)

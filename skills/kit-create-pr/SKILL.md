@@ -92,6 +92,7 @@ gh pr create \
 
 ## Hygiene (before publish)
 
+- **Strip:** if the diff is fatter than the outcome, `kit-strip-diff` before review.
 - **Review:** prefer `kit-review author` on the branch diff before publish.
 - **Branch:** descriptive lowercase with hyphens (`fix-…`, `feature-…`). Prefer syncing with default branch before open if the branch is stale (`git fetch` + rebase/merge per repo norm).
 - **Diff:** no secrets, no probe/TEMP validation junk, no unrelated drive-bys.

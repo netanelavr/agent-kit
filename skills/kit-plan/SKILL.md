@@ -111,6 +111,7 @@ Present the log. Ask for approval (`go` / `lock it` / numbered edits).
 
 Implement only the approved concept.
 Prefer the smallest shape (`kit-minimize` if the path is still wide).
+Once a diff exists and it is fatter than that shape, `kit-strip-diff`.
 Prove claims with `kit-prove`. Do not add extensibility nobody approved.
 
 ## Do / Don't

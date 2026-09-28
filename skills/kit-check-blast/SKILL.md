@@ -11,6 +11,7 @@ What else breaks if this ships? Grep alone is not enough.
 ## What this is NOT
 
 - Not a full PR review (`kit-review`)
+- Not cutting unused additions or format-only hunks (`kit-strip-diff`)
 - Not “list every caller” — that’s trivial; focus on breakage grep misses
 - Companion to `kit-prove`: safety claims need live proof
 

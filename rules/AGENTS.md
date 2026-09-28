@@ -10,4 +10,4 @@ How to attach them: README section **How vendors consume the kit**.
 | `kit-delegate.mdc` | Inline vs skill vs subagent |
 | `kit-keep-diff.mdc` | Minimal diffs |
 | `kit-humanize.mdc` | Plain writing |
-| `kit-work-loop.mdc` | Plan first, isolate, prove, capture |
+| `kit-work-loop.mdc` | Plan first, isolate, strip a fat diff, prove, capture |

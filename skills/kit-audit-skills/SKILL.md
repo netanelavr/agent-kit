@@ -60,6 +60,7 @@ Cluster by **user intent**, not title:
 | Cluster | Smell |
 |---|---|
 | Think-before-code | Plan / reframe / grill / minimize overlapping “What this is NOT” |
+| Fat diff | Strip extras (`kit-strip-diff`) vs smallest path before code (`kit-minimize`) vs bug review (`kit-review`) |
 | Prove it | Smoke vs runtime vs blast-radius with the same burden of proof |
 | Review | Author vs reviewer as two skills instead of modes |
 | Ship | Tiny git recipes that are four commands |

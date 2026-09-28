@@ -20,3 +20,5 @@ Only lines that must change for the outcome should appear in the diff.
 - Reorder only when the user explicitly asks
 
 If a formatter would reshuffle a whole file, prefer the smallest scoped edit that still compiles.
+
+A finished diff that already has unused additions, extra instruction lines, or format-only hunks: `kit-strip-diff`.
