@@ -40,6 +40,7 @@ Always-on rules are **not** installed by `npx skills add`. Copy `rules/*.mdc` if
 | `kit-audit-metrics` | Honest aggregate analytics — define, query, provenance, no invented numbers |
 | `kit-audit-skills` | After adding/renaming skills: overlaps, contradictions, stale names, catalog drift |
 | `kit-capture-lesson` | Turn a steering/repeated miss into a short written rule; wait for approval |
+| `kit-evolve` | Evolve and prune skills/rules from repeated corrections; keep or delete only after a measured with/without replay |
 
 ## Rules Catalog
 
