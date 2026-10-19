@@ -12,6 +12,8 @@ Stress-test a plan or design against the project's domain language, existing doc
 
 Use this when you **already have** a plan, spec, or design doc and want to find gaps, contradictions, and fuzzy language before implementation.
 
+A plan to fix a bug or failing test counts as a draft. Grill it here **before** any code edit.
+
 Do **not** use this when:
 
 - The idea is still fuzzy and **no draft exists yet**. Hand off to `kit-plan` (align concept + decision log; do not auto-write a PRD). Run this skill only after there is a draft to grill.
@@ -111,6 +113,7 @@ Interview relentlessly until you and the user share a clear understanding. Walk 
 | Relationship between concepts | Invent a concrete scenario that probes an edge case. Force a clear boundary between concepts. |
 | User states how something works | Cross-check the code. If it contradicts the plan, surface the mismatch and ask which is authoritative. |
 | Missing non-goals or scope | Ask what is explicitly out of scope for this change. |
+| Plan fixes a bug / failing test | Run the Repair-plan attack (below) first: mechanism over intent, every step tested against the failing assertion. |
 
 ### Question order (adapt to the design)
 
@@ -126,6 +129,15 @@ Work through branches in dependency order. Typical sequence:
 8. **Trade-offs** — Alternatives considered; why this path over others.
 
 Skip branches that do not apply. Go deeper where the design is fuzzy or risky.
+
+## Repair-plan attack (before editing)
+
+Applies when the draft is a plan to fix a bug or a failing test. A wrong idea planted at the plan stage costs far more than the same wrong idea at the hypothesis stage ([Poison Valleys, arXiv:2610.21514](https://arxiv.org/abs/2610.21514)). Kill it while critiquing the plan, before any edit.
+
+- **Mechanism, not intent.** Critique HOW the fix works — state ownership, update order, error handling — not whether the goal sounds right. A plan can sound right and still be mechanically wrong.
+- **Attack against the failing test.** Walk each plan step against the exact failing assertion/output. Any step that cannot change the observed failure is suspect; name which steps survive and why.
+- **Hypothesis and plan stay separate.** The diagnosis (why it fails) and the repair plan (what to change) are two artifacts. The plan must not silently absorb or rewrite the hypothesis.
+- **Diagnosis changed → regenerate, don't patch.** If the hypothesis changes mid-review, discard the plan and write a new one from the new diagnosis. Patching an old plan onto a new cause is how poisoned plans survive.
 
 ## 2. Update documentation inline
 
