@@ -132,7 +132,7 @@ Skip branches that do not apply. Go deeper where the design is fuzzy or risky.
 
 ## Repair-plan attack (before editing)
 
-Applies when the draft is a plan to fix a bug or a failing test. A wrong idea planted at the plan stage costs far more than the same wrong idea at the hypothesis stage ([Poison Valleys, arXiv:2610.21514](https://arxiv.org/abs/2610.21514)). Kill it while critiquing the plan, before any edit.
+Applies when the draft is a plan to fix a bug or a failing test. A wrong idea planted at the plan stage costs far more than the same wrong idea at the hypothesis stage. Kill it while critiquing the plan, before any edit.
 
 - **Mechanism, not intent.** Critique HOW the fix works — state ownership, update order, error handling — not whether the goal sounds right. A plan can sound right and still be mechanically wrong.
 - **Attack against the failing test.** Walk each plan step against the exact failing assertion/output. Any step that cannot change the observed failure is suspect; name which steps survive and why.
