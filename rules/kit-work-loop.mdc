@@ -27,7 +27,11 @@ Before claiming done: `kit-prove` with live artifacts. Prefer an **isolated chec
 
 ## Capture the lesson
 
+When the user corrects or steers you and `.kit-evolve/lessons.md` exists at the repo root: append one line to it, in the format its header shows, without asking. One line per correction, not per message. No secrets, tokens, customer or personal data.
+
 If you repeated a mistake class, or the user had to steer you: offer `kit-capture-lesson`. Do not silently rewrite always-on rules.
+
+If something went from broken to working, offer to save it as a `kit-evolve` replay task.
 
 ## Autonomy
 

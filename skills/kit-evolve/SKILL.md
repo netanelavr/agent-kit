@@ -20,16 +20,16 @@ Measure harness changes instead of trusting them. One success proves little: the
 
 Lives in the consuming repo, not in the kit: `.kit-evolve/`
 
-- `lessons.md` - one line per correction: date, task, what the agent did, what it should have done. Duplicates stay; repeats are the signal.
+- `lessons.md` - one line per correction. Its header holds the format: `# Lessons - YYYY-MM-DD | task | did: ... | should: ...`. `kit-work-loop` and `kit-capture-lesson` append lines during the session. Duplicates stay; repeats are the signal.
 - `tasks/<slug>/` - a replayable task: `request.txt` (the user's words, verbatim), `base` (commit where it was broken), `check.sh` (exits 0 when solved), `fix.patch` (proof it can be solved).
 - `journal.md` - every cycle and verdict, append-only.
 - `graveyard/<slug>.md` - killed candidates with the reason, so the same idea is not proposed again unchanged.
 
-## 1. Collect (end of a session)
+## 1. Collect (during and at the end of a session)
 
 Ask two questions. Usually both are no; then record nothing.
 
-1. Did the user correct the agent, even once? → one lesson line per correction.
+1. Did the user correct the agent, even once? → one lesson line per correction that has no line yet.
 2. Did something go from broken to working? → offer to save a replay task.
 
 A task is a ruler only if its check separates broken from fixed. Before keeping one, run `check.sh` in three states: broken must fail; broken + fix must pass; broken + fix minus the fix's test edits must still pass (a replaying agent will not rewrite your test). Fail any state → quarantine the task, repair it once, delete it on a second fail.

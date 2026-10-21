@@ -33,6 +33,7 @@ Prefer patching an existing skill or rule over adding a name.
 
 4. Show the **exact patch**. Stop. Wait for yes.
 5. After yes: smallest edit. If you add or rename a skill/rule, update `README.md` catalogs and run `kit-audit-skills`.
+6. Approved or not: if `.kit-evolve/lessons.md` exists and this correction has no line yet, append one in its header's format.
 
 ## Constraints
 
