@@ -1,0 +1,27 @@
+---
+description: External tool, package, library, or source claims need a live URL and a liveness signal
+alwaysApply: true
+---
+
+# Evidence
+
+When you claim an external tool, package, library, or source exists, or that it does X, check it live in this run. Memory is only a hypothesis.
+
+## Carry both
+
+1. A live URL opened this run (docs, registry, repo, or release page).
+2. A liveness signal: the date you checked, plus one freshness fact. Use last release, last commit, or "page reachable today".
+
+Quote versions, pricing, limits, and license terms from that page, or leave them out.
+
+## If you cannot check
+
+Write `unverified: <claim>`.
+
+Do not drop the claim silently. Do not state it as fact.
+
+## Do not
+
+- Recommend a name you only remember
+- Invent a package, endpoint, or version to fill a gap
+- Treat an example list inside a skill as a live check

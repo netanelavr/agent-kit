@@ -19,7 +19,7 @@ Long research, noisy logs, and parallel analysis: **one subagent per task**, per
 
 Before a complex change: one question - is there a smaller path? If yes, `kit-minimize`. Do not debate every line.
 
-After the change exists, if the diff still has unused additions, extra instruction lines, or format-only hunks: `kit-strip-diff`.
+After the change exists, if the diff still has unused additions, extra instruction lines, format-only hunks, or rare-case handling the outcome does not need: `kit-strip-diff`.
 
 ## Sign-off
 

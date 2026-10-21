@@ -29,10 +29,10 @@ Always-on rules are **not** installed by `npx skills add`. Copy `rules/*.mdc` if
 | `kit-debug-prod` | Production bugs via logs/traces/errors/metrics (needs team `wire-observability.md`) |
 | `kit-challenge-design` | Stress-test a plan or design against domain language, docs, and code |
 | `kit-debate-decision-tree` | Persona debate + wide, deep decision tree with simulated picks; writes plain decision sentences to new files |
-| `kit-plan` | Align on a buildable concept (includes three readings when the ask is fuzzy); wait for approval |
+| `kit-plan` | Distill the need first (don't-build can stop it); align a concept, with three readings when fuzzy; wait for approval |
 | `kit-decisions` | Living log for one large feature: accepted, rejected, landmines, open |
 | `kit-minimize` | Smallest useful path / minimal PR (not design grill) |
-| `kit-strip-diff` | After the outcome works: drop unused additions, extra instruction lines, and format-only hunks |
+| `kit-strip-diff` | After the outcome works: drop unused additions, extra instruction lines, format-only hunks, and rare-case handling the outcome does not need |
 | `kit-prove` | Live proof for “it works” claims — smoke or runtime path; probes stay temporary |
 | `kit-explain` | Problem / Solution / How + one compact mermaid |
 | `kit-learn-repo` | Ramp on a repo: layout, run/test, safe change points |
@@ -53,6 +53,7 @@ Always-on rules (`rules/*.mdc`). Copy or point at them; do not rely on slash inv
 | `kit-keep-diff` | always — minimal diffs, no unrelated reorders |
 | `kit-humanize` | always — plain writing; no AI-slop in commits/PRs/docs |
 | `kit-work-loop` | always — plan first, isolate noisy work, strip a fat diff, isolated prove, capture repeated fixes |
+| `kit-evidence` | External tool, package, library, or source claims need a live URL and a liveness signal, or `unverified` |
 
 Invoke a skill in Cursor with `/<skill-name>`.
 

@@ -1,12 +1,12 @@
 ---
 name: kit-plan
-description: Align on a buildable concept, then wait for explicit approval before coding. Use for complex or fuzzy work — includes three ticket readings when the ask is ambiguous.
+description: Distill the need first (don't-build can stop the work), then align a buildable concept and wait for explicit approval. Use for complex or fuzzy work, including three ticket readings when the ask is ambiguous.
 disable-model-invocation: true
 ---
 
 # Plan
 
-Reach a **shared concept**, write a short decision log, and **stop**. Code only after explicit approval.
+Distill the need first. If it still needs a build, reach a **shared concept**, write a short decision log, and **stop**. Code only after explicit approval.
 
 You stop plan-mode from inventing the wrong thing, and you stop coding from starting too early.
 
@@ -14,7 +14,7 @@ You stop plan-mode from inventing the wrong thing, and you stop coding from star
 
 - Not grilling a finished design against glossary/ADRs (`kit-challenge-design`)
 - Not the living log of a feature already in progress (`kit-decisions`)
-- Not choosing the smallest path of an agreed outcome (`kit-minimize`)
+- Not choosing the smallest path of an agreed outcome (`kit-minimize`). Don't-build in step 1 ends before an outcome exists.
 - Not a PRD factory, issue tree, or future-proof architecture pass
 
 If they already have a spec to stress-test → `kit-challenge-design`.
@@ -49,7 +49,12 @@ Prefer 2–4 sharp options over serial ping-pong.
 
 ## Flow
 
-### 1. Place the ask (three readings when fuzzy)
+### 1. Place the ask
+
+**Distill the need** before the readings. The request is a proposed solution, not the mission.
+- Literal ask in one line, marked as a proposed solution. Actual need: what must be true when done.
+- Better means: reuse, config, process change, or don't-build. If the need dies or don't-build wins, stop. No plan. Say why in one line.
+- If still build-shaped, continue. Distill is the coarse gate (should this exist at all). Scale-gate in step 3 is the fine gate (is this version overbuilt).
 
 One sentence: local fix, workflow change, or new domain concept.
 
@@ -73,7 +78,7 @@ Walk forks in dependency order. Capture as you go:
 - **defaults you assumed**
 - **open risks**
 
-Search the repo before proposing new files or layers. Reuse beats invention.
+Search the repo before proposing new files or layers. Reuse beats invention. If the new layer has a common name (queue, retry, auth), say that name and whether a dependency already covers it (`kit-evidence`).
 Stop when further questions no longer change the concept.
 
 ### 3. Scale-gate (always)

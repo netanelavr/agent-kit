@@ -47,3 +47,5 @@ Write a short **ANALYSIS DEFINITION** block, then proceed.
 | … | … |
 
 State confidence and what was **not** checked. No fabricated metrics — if you lack access, say so (`kit-prove` mindset).
+
+Any external source named in the report (dashboard, doc, dataset) carries a URL and the date checked, or is labeled `unverified: <claim>` (`kit-evidence`).

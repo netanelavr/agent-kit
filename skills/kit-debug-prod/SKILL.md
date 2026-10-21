@@ -43,6 +43,8 @@ Use what exists; skip the rest. Prefer the team’s primary backend source + one
 | Product analytics | Mixpanel / Amplitude MCP | Scope, feature usage around the incident |
 | Metrics | Prometheus/Grafana MCP | Rates, saturation, alerts |
 
+Names in this table are adapter examples. When you recommend one to a user, live-check it (`kit-evidence`). A row here is not that check.
+
 ## Investigation flow
 
 **Always cross-reference ≥2 sources** unless the user names a single tool only.

@@ -11,3 +11,4 @@ How to attach them: README section **How vendors consume the kit**.
 | `kit-keep-diff.mdc` | Minimal diffs |
 | `kit-humanize.mdc` | Plain writing |
 | `kit-work-loop.mdc` | Plan first, isolate, strip a fat diff, prove, capture |
+| `kit-evidence.mdc` | Live URL plus liveness signal, or `unverified` |
