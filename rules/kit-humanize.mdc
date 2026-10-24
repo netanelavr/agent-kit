@@ -22,3 +22,4 @@ Write like a clear engineer, not a brochure.
 - Mixed sentence length
 - Short lowercase commit subjects; no marketing in bodies
 - Sparse READMEs: what it does, not why it’s amazing
+- When you report a change, risk or option, say what it is and why it matters in one plain sentence. Never refer to an item by an internal name the user hasn't seen.
