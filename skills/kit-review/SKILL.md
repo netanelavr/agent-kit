@@ -44,6 +44,7 @@ If this change belongs to a feature that has a `decisions.md` (`docs/features/<f
 3. **Drill down** — checklist P0 → P3
 4. **Alternatives** — only if they clearly improve simplicity/correctness/reuse
 5. **Reviewer-only** — light approach check (why this path; simpler option; failure modes). Deep domain/ADR grilling is `kit-challenge-design`. Skip hypothetical 10× scale unless the change is actually about scale.
+6. **Reviewer-only** — flag every hard-to-reverse decision the diff adds (data or schema, public API or contracts, event or topic names, migrations), even when it looks correct, and check it against the plan or `decisions.md`. Never agreed is a finding.
 
 ## Philosophy
 

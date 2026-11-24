@@ -33,6 +33,7 @@ Accept `kit-plan light|standard|deep`. If omitted, auto-calibrate and say the ti
 | **deep** | New nouns, several valid architectures, or repeated misalignment | Walk the real forks |
 
 Higher effort means more **scope / boundary / correctness / sequencing** questions — never more folder or button-copy questions.
+Spend forks by expected pain: how likely the choice changes times how costly it is to change later.
 
 ## Question filter
 
@@ -44,6 +45,7 @@ Ask only if the answer would change at least one of:
 - sequencing (what ships first)
 - whether we are overbuilding for scale
 
+Hard-to-reverse choices (data or schema, public API or contracts, event or topic names, migrations) get a real fork. Cheap reversible ones (copy, UI look) get a stated default.
 Otherwise default from the codebase and say what you assumed.
 Prefer 2–4 sharp options over serial ping-pong.
 

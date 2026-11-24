@@ -76,5 +76,6 @@ Discover ports from compose/env/`package.json` / listening processes — never a
 ## Rules
 
 - Missing artifact → say **unproven**. Do not soften to “likely works”.
+- Negative control: the proof must fail or differ without the change (on base). If it passes either way, it proves nothing.
 - Early stop only skips **deep probes** — any “it works” / “validated” claim still needs an artifact, or mark **unproven**.
 - Prefer short reproducible commands over long narrative.

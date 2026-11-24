@@ -54,6 +54,7 @@ False positives erode trust. Aim for high confidence of real impact.
 13. **Null safety** — `Map.get` / `find` / optionals accessed without checks
 14. **Prop drilling / hardcoded children** — 3+ unused forward layers; prefer composition/slots when it simplifies
 15. **State ownership** — state only used by one child should live there
+16. **Hard-to-reverse decisions** — new schema, public API or contract, event or topic name, or migration not agreed in the plan or `decisions.md` → finding, even if it looks correct
 
 ## Boy Scouts
 
