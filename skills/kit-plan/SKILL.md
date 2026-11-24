@@ -1,7 +1,6 @@
 ---
 name: kit-plan
 description: Distill the need first (don't-build can stop the work), then align a buildable concept and wait for explicit approval. Use for complex or fuzzy work, including three ticket readings when the ask is ambiguous.
-disable-model-invocation: true
 ---
 
 # Plan

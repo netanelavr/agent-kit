@@ -1,7 +1,6 @@
 ---
 name: kit-create-pr
 description: Commit changes and create a pull request with proper formatting. Use when ready to publish work for review.
-disable-model-invocation: true
 ---
 
 # Create PR

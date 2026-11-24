@@ -1,7 +1,6 @@
 ---
 name: kit-strip-diff
 description: Remove extras from a finished diff. Use when the outcome already works and the diff still has unused additions, extra instruction lines, format-only hunks, or rare-case handling the outcome does not need.
-disable-model-invocation: true
 ---
 
 # Strip diff

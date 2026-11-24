@@ -1,7 +1,6 @@
 ---
 name: kit-prove
 description: Require live proof for any “works / tested / validated” claim — CLI, raw JSON/logs, timestamps, or a real runtime path. Use when verifying a fix, smoke, or “validate it works”. Not for stripping a finished diff or design debate.
-disable-model-invocation: true
 ---
 
 # Prove
